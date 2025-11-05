@@ -208,6 +208,7 @@ struct Infos {
     experimental_no_edition_2024_for_prefix_post_processing: bool,
     experimental_no_edition_2024_for_facet_post_processing: bool,
     experimental_vector_store_setting: bool,
+    experimental_personalization: bool,
     gpu_enabled: bool,
     db_path: bool,
     import_dump: bool,
@@ -285,7 +286,7 @@ impl Infos {
             indexer_options,
             config_file_path,
             no_analytics: _,
-            experimental_personalization_api_key: _,
+            experimental_personalization_api_key,
         } = options;
 
         let schedule_snapshot = match schedule_snapshot {
@@ -372,6 +373,7 @@ impl Infos {
             experimental_no_edition_2024_for_settings,
             experimental_no_edition_2024_for_prefix_post_processing,
             experimental_no_edition_2024_for_facet_post_processing,
+            experimental_personalization: experimental_personalization_api_key.is_some(),
         }
     }
 }
